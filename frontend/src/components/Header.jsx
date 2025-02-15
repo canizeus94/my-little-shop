@@ -5,7 +5,7 @@ import { FaShoppingCart , FaUser} from 'react-icons/fa';
 const Header = () => {
   return (
     <header>
-        <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+        <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
             {/*Create Container to center content and prevent browser stretching.*/}
             <Container>
             <Navbar.Brand href="/">My Little Shop</Navbar.Brand>
