@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { FaShoppingCart , FaUser} from 'react-icons/fa';
+import logo from '../assets/logo2.png';
 
 const Header = () => {
   return (
@@ -8,7 +9,10 @@ const Header = () => {
         <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
             {/*Create Container to center content and prevent browser stretching.*/}
             <Container>
-            <Navbar.Brand href="/">My Little Shop</Navbar.Brand>
+            <Navbar.Brand href="/">
+              <img src={logo} alt="My Little Shop" />
+              My Little Shop
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ms-auto"> {/*ms-auto to push items to the right.*/}
