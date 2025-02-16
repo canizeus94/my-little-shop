@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import products from '../components/Product';
+import Product from '../components/Product';
+import products from '../products';
 
 const HomeScreen = () => {
   return (
@@ -11,7 +12,7 @@ const HomeScreen = () => {
             {/*Map through the products and display them in a grid.*/}
             {products.map(product => (
                 <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                    <h3>{product.name}</h3>
+                    <Product product={product} />
                 </Col>
             ))}
         </Row>
