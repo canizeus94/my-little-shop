@@ -1,8 +1,6 @@
 import React from "react";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
-const starNum = [1, 2, 3, 4, 5];
-
 const Rating = ({ value, text }) => {
   const renderStar = (index) => {
     if (value >= index) {
@@ -16,7 +14,7 @@ const Rating = ({ value, text }) => {
 
   return (
     <div className="rating">
-      {starNum.map((index) => (
+      {[1, 2, 3, 4, 5].map((index) => (
         <span key={index}>{renderStar(index)}</span>
       ))}
       <span className="rating-text">{text && text}</span>
