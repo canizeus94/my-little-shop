@@ -1,0 +1,23 @@
+{
+  "name": "pequeno_basar",
+  "version": "1.0.0",
+  "description": "My Little Shop application built with MERN.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canizeus94/my-little-shop.git"
+  },
+  "author": "Erick R Estudillo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/canizeus94/my-little-shop/issues"
+  },
+  "homepage": "https://github.com/canizeus94/my-little-shop#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
