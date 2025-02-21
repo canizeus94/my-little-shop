@@ -1,24 +1,27 @@
-import React from "react";
+import React, { use } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import Rating from "../components/Rating";
-import products from "../products";
+import axios from "axios";
 
 const ProductScreen = () => {
-  {
-    /* Get the product ID from the URL */
-  }
-  const { id: productId } = useParams();
-  {
-    /* Find the product with the given ID */
-  }
-  const product = products.find((product) => product._id === productId);
-  {
-    /* If the product is not found, display a message */
-  }
-  if (!product) return <h2>Product Not Found</h2>;
+  {/*State to hold the product details.*/}
+  const [product, setProduct] = useState({});
 
+  {/*Get the product ID from the URL parameters.*/}
+  const { id: productId } = useParams();
+
+  {/*Fetch product details based on the product ID from the URL.*/}
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${productId}`);
+      setProduct(data);
+    };
+
+    fetchProduct();
+  }, [productId]);  
   return (
     <>
       {/* Button to go back to the home screen */}
