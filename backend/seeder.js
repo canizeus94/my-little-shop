@@ -14,6 +14,7 @@ dotenv.config();
 // Connect to the database.
 connectDB();
 
+
 // Import sample data into the database.
 const importData = async () => {
   try {
