@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/canizeus94/my-little-shop#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "express": "^4.21.2",
     "mongoose": "^8.10.1"
   },
