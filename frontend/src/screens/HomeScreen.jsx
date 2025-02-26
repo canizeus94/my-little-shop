@@ -1,35 +1,33 @@
-import React, { use } from "react";
-import { useEffect, useState } from "react";
-import { Row, Col } from "react-bootstrap";
-import Product from "../components/Product";
-import axios from "axios";
+import { Row, Col } from 'react-bootstrap';
+import { useGetProductsQuery } from '../slices/productsApiSlice';
+import Product from '../components/Product';
 
 const HomeScreen = () => {
-  {/*State to hold the products.*/}
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    {/*Fetch products from the API.*/}
-    const fetchProducts = async () => {
-      const { data } = await axios.get("/api/products");
-      setProducts(data);
-    };
-
-    fetchProducts();
-  }, []);
+  {/* Fetch the products using the useGetProductsQuery hook */}
+  const { data: products, isLoading, error } = useGetProductsQuery();
 
   return (
     <>
-      <h1>Latest Products</h1>
-      {/*Create a Row to contain the products.*/}
-      <Row>
-        {/*Map through the products and display them in a grid.*/}
-        {products.map((product) => (
-          <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-            <Product product={product} />
-          </Col>
-        ))}
-      </Row>
+      {/* If loading, show a loading message. 
+        * If there is an error, show the error message.
+        * Otherwise, display the products in a grid layout.
+      */}
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : error ? (
+        <div>{error?.data.message || error.error}</div>
+      ) : (
+        <>
+          <h1>Latest Products</h1>
+          <Row>
+            {products.map((product) => (
+              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                <Product product={product} />
+              </Col>
+            ))}
+          </Row>
+        </>
+      )}
     </>
   );
 };
