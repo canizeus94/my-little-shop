@@ -1,12 +1,13 @@
 import express from "express";
 import asyncHandler from "../middleware/asyncHandler.js";
 import Product from "../models/productModel.js";
+import checkObjectId from "../middleware/checkObjectId.js";
 
 const router = express.Router();
 
 // Route to get all products.
 router.get(
-  "/",
+  '/',
   asyncHandler(async (req, res) => {
     const products = await Product.find({});
     res.json(products);
@@ -15,7 +16,7 @@ router.get(
 
 // Route to get a product by ID.
 router.get(
-  "/:id",
+  '/:id',
   asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
 
@@ -24,7 +25,8 @@ router.get(
       return res.json(product);
     }
 
-    res.status(404).json({ message: "Product not found" });
+    res.status(404);
+    throw new Error(`Product with ID: ${req.params.id} not found.`);
   })
 );
 
