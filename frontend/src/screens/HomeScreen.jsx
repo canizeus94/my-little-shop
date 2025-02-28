@@ -1,6 +1,7 @@
 import { Row, Col } from 'react-bootstrap';
 import { useGetProductsQuery } from '../slices/productsApiSlice';
 import Product from '../components/Product';
+import Loader from '../components/Loader';
 
 const HomeScreen = () => {
   {/* Fetch the products using the useGetProductsQuery hook */}
@@ -13,7 +14,7 @@ const HomeScreen = () => {
         * Otherwise, display the products in a grid layout.
       */}
       {isLoading ? (
-        <div>Loading...</div>
+        <Loader />
       ) : error ? (
         <div>{error?.data.message || error.error}</div>
       ) : (

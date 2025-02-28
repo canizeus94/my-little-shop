@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 import { useGetProductDetailsQuery } from '../slices/productsApiSlice';
 import Rating from '../components/Rating';
+import Loader from '../components/Loader';
 
 const ProductScreen = () => {
   { /*Get the product ID from the URL parameters.*/ }
@@ -22,7 +23,7 @@ const ProductScreen = () => {
        * Otherwise, display the product details.
        */}
       {isLoading ? (
-        <div>Loading...</div>
+        <Loader />
       ) : error ? (
         <div>{error?.data.message || error.error}</div>
       ) : (
