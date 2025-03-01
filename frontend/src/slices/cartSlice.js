@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { updateCart } from '../utils/cartUtils';
 
 // Check if there is already an instance of cart.
 const initialState = localStorage.getItem('cart')
@@ -23,8 +24,12 @@ const cartSlice = createSlice({
         // Add the state item to the cartItems state.
         state.cartItems = [...state.cartItems, item];
       }
+
+      updateCart(state);
     },
   },
 });
+
+export const { addToCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
