@@ -24,8 +24,7 @@ const cartSlice = createSlice({
         // Add the state item to the cartItems state.
         state.cartItems = [...state.cartItems, item];
       }
-
-      updateCart(state);
+      return updateCart(state);
     },
   },
 });
