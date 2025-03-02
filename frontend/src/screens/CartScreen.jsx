@@ -23,10 +23,10 @@ const CartScreen = () => {
 
   {
     /**
-     * The addToCartHandler does not return a Promise therefore,
-     * async function is not used.
+     * The addToCartHandler & removeFromCartHandler
+     * does not return a Promise therefore, async function is not used.
      *
-     * This is triggered when the user changes the quantity of a
+     * addToCartHandler is triggered when the user changes the quantity of a
      * product in the CartScreen.
      */
   }
@@ -34,6 +34,12 @@ const CartScreen = () => {
     dispatch(addToCart({ ...product, qty }));
   };
 
+  {
+    /**
+     * removeFromCartHandler is triggered when the user deletes
+     * a product in the CartScreen.
+     */
+  }
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
   };
