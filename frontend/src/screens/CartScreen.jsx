@@ -26,7 +26,7 @@ const CartScreen = () => {
      * The addToCartHandler & removeFromCartHandler
      * does not return a Promise therefore, async function is not used.
      *
-     * addToCartHandler is triggered when the user changes the quantity of a
+     * The addToCartHandler is triggered when the user changes the quantity of a
      * product in the CartScreen.
      */
   }
@@ -36,12 +36,23 @@ const CartScreen = () => {
 
   {
     /**
-     * removeFromCartHandler is triggered when the user deletes
+     * The removeFromCartHandler is triggered when the user deletes
      * a product in the CartScreen.
      */
   }
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
+  };
+
+  {
+    /**
+     * The checkoutHandler is triggered when the user clicks
+     * the checkout button and redirects to Payment and
+     * Shipping screens.
+     */
+  }
+  const checkoutHandler = () => {
+    navigate('/login?redirect=/shipping');
   };
 
   return (
@@ -113,6 +124,7 @@ const CartScreen = () => {
                 type='button'
                 className='btn-block'
                 disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
               >
                 Proceed To Checkout
               </Button>
