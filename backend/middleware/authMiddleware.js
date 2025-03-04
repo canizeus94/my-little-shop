@@ -31,7 +31,7 @@ const protect = asyncHandler(async (req, res, next) => {
 
 // Admin route - user must be an administrator (admin).
 const admin = (req, res, next) => {
-  if (req.user && req.isAdmin) {
+  if (req.user && req.user.isAdmin) {
     next();
   } else {
     res.status(401);

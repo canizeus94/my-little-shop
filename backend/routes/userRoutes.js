@@ -1,5 +1,5 @@
 import express from 'express';
-import checkObjectId from '../middleware/checkObjectId.js';
+
 import {
   authUser,
   registerUser,
