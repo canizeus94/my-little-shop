@@ -1,4 +1,3 @@
-import React, { use } from 'react';
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -43,7 +42,7 @@ const ProductScreen = () => {
   return (
     <>
       {/* Button to go back to the home screen */}
-      <Link className="btn btn-light my-3" to="/">
+      <Link className='btn btn-light my-3' to='/'>
         Go Back
       </Link>
       {/* If loading, show a loading message.
@@ -63,7 +62,7 @@ const ProductScreen = () => {
               <Image src={product.image} alt={product.name} fluid />
             </Col>
             <Col md={3}>
-              <ListGroup variant="flush">
+              <ListGroup variant='flush'>
                 <ListGroup.Item>
                   <h3>{product.name}</h3>
                 </ListGroup.Item>
@@ -81,7 +80,7 @@ const ProductScreen = () => {
             </Col>
             <Col md={3}>
               <Card>
-                <ListGroup variant="flush">
+                <ListGroup variant='flush'>
                   <ListGroup.Item>
                     <Row>
                       <Col>Price:</Col>
@@ -104,7 +103,7 @@ const ProductScreen = () => {
                         <Col>QTY</Col>
                         <Col>
                           <Form.Control
-                            as="select"
+                            as='select'
                             value={qty}
                             onChange={(e) => setQty(Number(e.target.value))}
                           >
@@ -122,8 +121,8 @@ const ProductScreen = () => {
                   )}
                   <ListGroup.Item>
                     <Button
-                      className="btn-block"
-                      type="button"
+                      className='btn-block'
+                      type='button'
                       disabled={product.countInStock === 0}
                       onClick={addToCartHandler}
                     >
