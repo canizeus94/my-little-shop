@@ -20,6 +20,7 @@ import CartScreen from './screens/CartScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ShippingScreen from './screens/ShippingScreen';
+import PaymentScreen from './screens/PaymentScreen';
 
 // Create a router with a single route that renders the App component.
 const router = createBrowserRouter(
@@ -34,6 +35,7 @@ const router = createBrowserRouter(
       {/* Registered Users.*/}
       <Route path='' element={<PrivateRoute />}>
         <Route path='/shipping' element={<ShippingScreen />} />
+        <Route path='/payment' element={<PaymentScreen />} />
       </Route>
     </Route>
   )
