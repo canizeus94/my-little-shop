@@ -6,6 +6,7 @@ import connectDB from './config/db.js'; // Import the database connection functi
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'; // Import custom error handling middleware.
 import productRoutes from './routes/productRoutes.js'; // Import product routes.
 import userRoutes from './routes/userRoutes.js'; // Import user routes.
+import orderRoutes from './routes/orderRoutes.js'; // Import order routes.
 
 // Port number for the server.
 const port = process.env.PORT || 5000;
@@ -27,11 +28,12 @@ app.get('/', (req, res) => {
   res.send('API is running');
 });
 
-// Use the product routes for handling requests to /api/products.
+// Use the products route for handling requests to /api/products.
 app.use('/api/products', productRoutes);
-
-// Use the user routes for handling requests to /api/users.
+// Use the users route for handling requests to /api/users.
 app.use('/api/users', userRoutes);
+// Use the orders route for handling request to /api/orders.
+app.use('/api/orders', orderRoutes);
 
 // Custom error handling.
 app.use(notFound);
