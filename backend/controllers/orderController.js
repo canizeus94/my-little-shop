@@ -23,6 +23,8 @@ const addOrderItems = asyncHandler(async (req, res) => {
      * We must only trust the price of the item as it exists in our database.
      * This prevents a user paying whatever they want by hacking our client.
      */
+
+    // Get the items from the database using the ids from the client.
     const itemsFromDb = await Product.find({
       _id: { $in: orderItems.map((x) => x._id) },
     });
