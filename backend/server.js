@@ -20,20 +20,22 @@ const app = express();
 // Body parser middleware.
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 // Cookie parser middleware.
 app.use(cookieParser());
-
-app.get('/', (req, res) => {
-  res.send('API is running');
-});
-
 // Use the products route for handling requests to /api/products.
 app.use('/api/products', productRoutes);
 // Use the users route for handling requests to /api/users.
 app.use('/api/users', userRoutes);
 // Use the orders route for handling request to /api/orders.
 app.use('/api/orders', orderRoutes);
+
+app.get('/api/config/paypal', (req, res) => {
+  res.send({ clientId: process.env.PAYPAL_CIENT_ID });
+});
+
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
 
 // Custom error handling.
 app.use(notFound);
